@@ -25,8 +25,6 @@ void PoseDisplay::paintEvent(QPaintEvent*)
     
     //paint the bounding box of the main volume
     auto boundingBox = _model.getBoundingBox();
-    auto topLeftCorner = boundingBox.corner(Eigen::AlignedBox3f::TopLeftFloor);
-    auto lowerRightCorner = boundingBox.corner(Eigen::AlignedBox3f::BottomRightFloor);
     
     auto minCorner = boundingBox.min();
     auto maxCorner = boundingBox.max();

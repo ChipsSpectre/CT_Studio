@@ -10,18 +10,14 @@
 class Pose
 {
 private:
-    Eigen::Vector3f _normalRef;
-
-    Eigen::Vector3f _center;
-    Eigen::Vector3f _normal;
     float           _distance;
+    Eigen::Vector3f _normal;
     Eigen::Vector3f _point;
-    
+    Eigen::Vector3f _center;
+    Eigen::Vector3f _normalRef;
     Eigen::AngleAxisf _rotZ;
     Eigen::AngleAxisf _rotY;
     Eigen::AngleAxisf _rot;
-
-        
 public:
     Pose();
     Pose(Eigen::Vector3f point, Eigen::Vector3f center = Eigen::Vector3f(0, 0, 0));

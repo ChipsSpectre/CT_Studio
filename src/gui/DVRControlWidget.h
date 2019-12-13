@@ -23,19 +23,18 @@ class DVRControlWidget : public QGroupBox
 private:
     DVRModel& _model;
     CameraPose& _camera;
-    
-    BoxSlider* _step;
     BoxSlider* _rotY;
     BoxSlider* _rotZ;
+    
     BoxSlider* _zoom;
     BoxSlider* _distance;
+    BoxSlider* _step;
     
     QCheckBox* _perspective;
     
     TransferFuncWidget* _func;
 
-    QGridLayout* _layout;
-    
+    QGridLayout* _layout;    
     
 public:
     DVRControlWidget(DVRModel& model);

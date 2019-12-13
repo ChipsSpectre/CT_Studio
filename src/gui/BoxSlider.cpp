@@ -37,7 +37,6 @@ void BoxSlider::boxChanged(float value)
     if (catchEvent()) return;
     
     float min = static_cast<float>(_box->minimum());
-    float max = static_cast<float>(_box->maximum());
     float step = static_cast<float>(_box->singleStep());
     int iValue = static_cast<int>((value - min) / step);
     
@@ -50,7 +49,6 @@ void BoxSlider::sliderChanged(int value)
     if (catchEvent()) return;
     
     float min = static_cast<float>(_box->minimum());
-    float max = static_cast<float>(_box->maximum());
     float step = static_cast<float>(_box->singleStep());
     
     float fValue = min + value * step;

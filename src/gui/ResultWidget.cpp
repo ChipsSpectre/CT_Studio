@@ -53,7 +53,6 @@ bool ResultWidget::eventFilter(QObject* watched, QEvent* event) {
     if(event->type() == QEvent::Paint && ( watched == _drawWidgetSingle ||
         watched == _drawWidgetAll)){
         QWidget& widget = currWidget();
-        QSize size = widget.size();
         
         //TODO if the image is not a square it shouldn't be painted as a square
         int drawSize = std::min(widget.width(), widget.height());

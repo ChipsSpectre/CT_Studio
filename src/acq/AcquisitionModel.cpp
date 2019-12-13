@@ -13,6 +13,10 @@ AcquisitionModel::AcquisitionModel(std::string phantomName)
 
 
 bool AcquisitionModel::loadFile(QString path) {
+    // TODO
+    std::cout << "Writing to disk currently not supported. " 
+        << path.toUtf8().constData() << std::endl;
+
     return true;
 }
 
@@ -47,7 +51,8 @@ Eigen::Vector3f AcquisitionModel::getPixelCenter(int i, int j) const{
 
 void AcquisitionModel::writeImage(std::string path) const
 {
-    // TODO: Support export to disk!
+    // TODO
+    std::cout << "Writing to disk currently not supported." << path << std::endl;
 }
 
 Eigen::AlignedBox3f AcquisitionModel::getBoundingBox() const{

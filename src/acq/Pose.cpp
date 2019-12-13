@@ -7,6 +7,8 @@ Pose::Pose()
 
 Pose::Pose(Eigen::Vector3f point, Eigen::Vector3f center)
     :
+    _distance(0.0f),
+    _normal(Eigen::Vector3f::Zero()),
     _point{point},
     _center{center},
     _rotZ{0.f, Eigen::Vector3f::UnitZ()},
@@ -39,11 +41,11 @@ Pose::Pose(Eigen::Vector3f point, Eigen::Vector3f center)
 }
 Pose::Pose(Eigen::Vector3f normal, float distance, Eigen::Vector3f center)
     :
-    _normalRef {normal},
-    _center {center},
     _distance {distance},
     _normal {normal},
     _point {distance * normal},
+    _center {center},
+    _normalRef {normal},
     _rotZ{0.f, Eigen::Vector3f::UnitZ()},
     _rotY{0.f, Eigen::Vector3f::UnitY()},
     _rot{Eigen::AngleAxisf::Identity()}

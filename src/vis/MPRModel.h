@@ -21,14 +21,12 @@ class MPRModel : public QObject
 {
     Q_OBJECT
 private:
+    TransferFunction _transferFunction;
+    QColor _color;
+    CameraPose _pose;
+
     float _distance;
     Eigen::Vector3f _normal;
-    TransferFunction _transferFunction;
-    
-    CameraPose _pose;
-    
-    QColor _color;
-
 public:
     MPRModel();
 

@@ -5,7 +5,6 @@
 #include "CameraPose.h"
 
 
-
 CameraPose::CameraPose()
     :
     CameraPose(200, 200)
@@ -15,7 +14,7 @@ CameraPose::CameraPose()
 CameraPose::CameraPose(int pixelHorizontal, int pixelVertical, float distance)
     :
     Pose(Eigen::Vector3f(-1.f, 0.f, 0.f), distance),
-    _pxlHorizontal{pixelVertical},
+    _pxlHorizontal{pixelHorizontal},
     _pxlVertical{pixelVertical},
     _down{0.f, 0.f, -1.f},
     _right{0.f, 1.f, 0.f},
