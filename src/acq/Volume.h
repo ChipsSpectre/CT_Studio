@@ -65,6 +65,12 @@ public:
     }
 };
 
+/**
+ * A volume is a wrapper around data specifying the meta information
+ * for the CT image (e.g. dimensional spacing).
+ * 
+ * The unit of spacing is cm
+ */
 class Volume : public VolumeBase{
 private:
     using content_type = Vec3D<float>;

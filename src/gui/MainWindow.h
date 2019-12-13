@@ -8,11 +8,17 @@
 #include <QPushButton>
 #include <QString>
 #include <QVBoxLayout>
+#include <QRect>
 
 #include "AcquisitionWidget.h"
 #include "PoseViewer.h"
 #include "ReconstructionViewer.h"
 #include "VisualizationWidget.h"
+
+#include <iostream>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QTimer>
 
 class MainWindow : public QMainWindow {
 public:
@@ -27,6 +33,8 @@ public:
         
         connect(&_rWidget, &ReconstructionViewer::requestAcquisition, this, &MainWindow::requestedAquisition);
         connect(&_vWidget, &VisualizationWidget::requestRecVolume, this, &MainWindow::requestedReconstruction);
+
+        QTimer::singleShot(0, this, SLOT(showFullScreen()));
     }
 
 private slots:

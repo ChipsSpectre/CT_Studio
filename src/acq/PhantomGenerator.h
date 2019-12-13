@@ -14,7 +14,6 @@ static
     const int STRINGS_EQUAL = 0;
 public:
 static Volume createPhantom(std::string phantomName) {
-    std::cout << phantomName.size() << "," << phantomName << std::endl;
     const std::string cubeName = "cube";
     if(phantomName.compare(cubeName) == STRINGS_EQUAL) {
         Eigen::VectorXf data(1000);

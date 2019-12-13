@@ -76,9 +76,6 @@ VisualizationWidget::VisualizationWidget() :
     
     menuLayout->addWidget(_loadFileButton, 0, 0);
     menuLayout->addWidget(_loadRecButton, 0, 1);
-
-    menuLayout->addWidget(_mprControlWidget, 1, 0, 1, 2);
-    menuLayout->addWidget(_dvrControlWidget, 2, 0, 1, 2);
     
     mainLayout->addItem(menuLayout);
     QVBoxLayout *mprLayout = new QVBoxLayout {};
