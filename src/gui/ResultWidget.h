@@ -13,6 +13,7 @@
 #include <QEvent>
 #include <QImage>
 #include <QVector>
+#include <QPaintEvent>
 
 #include "AcquisitionModel.h"
 
@@ -126,7 +127,7 @@ protected slots:
     void paintEvent(QPaintEvent *event) override{
         //for some reason update wasn't called automatically
         //even though the drawWidgets are children of this widget
-        currWidget().update();
+        currWidget().update(event->rect());
     }
     
     /*
