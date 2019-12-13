@@ -54,18 +54,18 @@ private:
     QPushButton *_mprSelectColorButton;
     ///resets color of transfer function to default values for mpr
     QPushButton *_mprColorResetButton;
-    ///shows the dimensions of the volume on screen
-    QLabel *_volumeInfoLabel;
-    ///renders the 2D MPR visualization
-    MPRWidget *_mprWidget;
-    ///paints the direct volume rendering (DVR)
-    DVRWidget *_dvrWidget;
-    ///displays the current color for dvr
-    QLabel *_dvrColorLabel;
     ///opens a dialog to choose the color for visualization for dvr
     QPushButton *_dvrSelectColorButton;
     ///resets color of transfer function to default values for dvr
     QPushButton *_dvrColorResetButton;    
+    ///shows the dimensions of the volume on screen
+    QLabel *_volumeInfoLabel;
+    ///displays the current color for dvr
+    QLabel *_dvrColorLabel;
+    ///renders the 2D MPR visualization
+    MPRWidget *_mprWidget;
+    ///paints the direct volume rendering (DVR)
+    DVRWidget *_dvrWidget;
     ///paints the axes for the mpr to visualize the current rotation
     AxisWidget *_axisWidget;    
     DVRControlWidget* _dvrControlWidget;
