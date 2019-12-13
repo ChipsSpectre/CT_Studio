@@ -11,6 +11,7 @@
 #include <QRect>
 
 #include "AcquisitionWidget.h"
+#include "Acquisition.h"
 #include "PoseViewer.h"
 #include "ReconstructionViewer.h"
 #include "VisualizationWidget.h"
@@ -20,31 +21,19 @@
 #include <QDesktopWidget>
 #include <QTimer>
 
+/**
+ * The main window contains all widgets of the application.
+ * 
+ * Different contexts are combined using a structure with tabs.
+ */
 class MainWindow : public QMainWindow {
 public:
-    MainWindow()
-    : _aWidget{"cube"}, _rWidget {}, _vWidget {} {
-        QTabWidget* tabWidget = new QTabWidget();
-
-        tabWidget->addTab(&_aWidget, "Acquisition");
-        tabWidget->addTab(&_rWidget, "Reconstruction");
-        tabWidget->addTab(&_vWidget, "Visualization");
-        setCentralWidget(tabWidget);
-        
-        connect(&_rWidget, &ReconstructionViewer::requestAcquisition, this, &MainWindow::requestedAquisition);
-        connect(&_vWidget, &VisualizationWidget::requestRecVolume, this, &MainWindow::requestedReconstruction);
-
-        QTimer::singleShot(0, this, SLOT(showFullScreen()));
-    }
+    MainWindow();
 
 private slots:
-    void requestedAquisition(){
-        _rWidget.setAcq(_aWidget.getAcq());
-    }
+    void requestedAquisition();
     
-    void requestedReconstruction(){
-        _vWidget.setRec(_rWidget.getRec());
-    }
+    void requestedReconstruction();
     
 private:
     AcquisitionWidget _aWidget;
