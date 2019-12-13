@@ -291,6 +291,7 @@ Eigen::VectorXf RayTracing::forwardProj(const Volume& vol, const AcquisitionPose
     const int horizontalPixels = pose.getPixelHorizontal();
     Eigen::VectorXf proj {verticalPixels * horizontalPixels};
     //row Major representation
+#pragma omp parallel for
     for(int y = 0; y < pose.getPixelVertical(); ++y){
         int yInd = y * horizontalPixels;
         for(int x = 0; x < pose.getPixelHorizontal(); ++x){
