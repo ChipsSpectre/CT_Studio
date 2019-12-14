@@ -4,7 +4,7 @@
 #include "AcquisitionModel.h"
 
 AcquisitionModel::AcquisitionModel(std::string phantomName)
-    :  _filled {true}, _volume{PhantomGenerator::createPhantom(phantomName)},
+    :  _filled {true}, _volume{PhantomGenerator::createPhantom(10, phantomName)},
     _posePrototype {_volume.getBoundingBox()},
     _poses { _posePrototype},
     _measurements {RayTracing::forwardProj(_volume, currPoseChecked())}

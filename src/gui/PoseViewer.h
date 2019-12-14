@@ -9,10 +9,12 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QMessageBox>
+#include <QDialog>
 
 #include "AcquisitionModel.h"
 #include "PoseDisplay.h"
 #include "AcquisitionPose.h"
+#include "PhantomDialog.h"
 
 
 class PoseViewer : public QWidget
@@ -52,6 +54,7 @@ private:
     QDoubleSpinBox *_detectorWidth;
     QDoubleSpinBox *_detectorHeight;
     QDoubleSpinBox *_detectorSouceDistance;
+    QPushButton *_loadPhantom;
     
     AcquisitionModel& _model;
 	bool _showRays;
@@ -141,5 +144,12 @@ public slots:
     
     void generatePoses(){
         _model.addSphericalPoses(_poseCount1->value(), _poseCount2->value());
+    }
+
+    void loadPhantom() {
+        PhantomDialog dialog(this);
+        dialog.exec();
+        
+        _model.loadPhantom(dialog.getSideLength(), dialog.getPhantomName());
     }
 };

@@ -35,6 +35,10 @@ public:
      */
     AcquisitionModel(std::string phantomName);
 
+    void loadPhantom(int sideLength, std::string phantomName) {
+        _volume = PhantomGenerator::createPhantom(sideLength, phantomName);
+    }
+
     /**
      * @brief loadImage. Loads a new EDF image into the acquisition model.
      * @param path - file system path determining location of EDF image.

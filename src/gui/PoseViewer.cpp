@@ -19,6 +19,7 @@ PoseViewer::PoseViewer(AcquisitionModel& model) :
     _detectorWidth {new QDoubleSpinBox {}},
     _detectorHeight {new QDoubleSpinBox {}},
     _detectorSouceDistance {new QDoubleSpinBox {}},
+    _loadPhantom{new QPushButton{"Load Phantom"}},
      _model {model},
      _showRays {false},
      _zoom {PoseViewer::DEFAULT_ZOOM}
@@ -120,6 +121,7 @@ PoseViewer::PoseViewer(AcquisitionModel& model) :
     generatorLayout->addWidget(countLabel2);
     generatorLayout->addWidget(_poseCount2);
     generatorLayout->addWidget(_generatePosesButton);
+    generatorLayout->addWidget(_loadPhantom);
     
     _poseCount1->setMinimum(1);
     _poseCount1->setValue(30);
@@ -130,6 +132,7 @@ PoseViewer::PoseViewer(AcquisitionModel& model) :
     setLayout(layout);
     
     connect(_generatePosesButton, &QPushButton::pressed, this, &PoseViewer::generatePoses);
+    connect(_loadPhantom, &QPushButton::pressed, this, &PoseViewer::loadPhantom);
     
     connect(_savePoseButton, &QPushButton::pressed, &_model, &AcquisitionModel::savePose);
     connect(_deletePoseButton, &QPushButton::pressed, &_model, &AcquisitionModel::deletePose);

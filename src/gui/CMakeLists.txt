@@ -17,6 +17,7 @@ set(GUI_SRCS
         BoxSlider.cpp
         TransferFuncWidget.cpp
         AxisWidget.cpp
+        PhantomDialog.cpp
         )
 set(GUI_HDRS
         MainWindow.h        
@@ -34,6 +35,7 @@ set(GUI_HDRS
         BoxSlider.h
         TransferFuncWidget.h
         AxisWidget.h
+        PhantomDialog.h
         )
 
 add_library(part2_lib_gui ${GUI_HDRS} ${GUI_SRCS} )
