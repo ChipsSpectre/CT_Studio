@@ -20,8 +20,11 @@
 class PoseViewer : public QWidget
 {
     Q_OBJECT
+
+public:
+    static
+    constexpr int DEFAULT_ZOOM = 1;
 private:    
-	// QScrollArea* scroll_area_;
 	QSpinBox *_zoomBox;
 	QCheckBox *_raysBox;
     

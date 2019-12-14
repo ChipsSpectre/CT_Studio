@@ -37,21 +37,6 @@ void PoseDisplay::paintEvent(QPaintEvent*)
     painter.drawRect( minCorner(_xAxis) *_zoom, minCorner(_yAxis) *_zoom,
                       (maxCorner(_xAxis) - minCorner(_xAxis)) *_zoom,
                       (maxCorner(_yAxis) - minCorner(_yAxis)) *_zoom);
-                     
-    
-    /*
-    //painter.setWidth(2)
-    painter.translate(
-        x_center + pose_->getDetectorCenter()(0) * zoom_, 
-        y_center - pose_->getDetectorCenter()(1) * zoom_
-       );
-    painter.rotate(-pose_->getRotation() / M_PI * 180);
-
-    // we need to move the rectangle that we draw by rx and ry so it's in the center.
-    float rx = 0;
-    float ry = -pose_->getDetectorWidth() * zoom_ * 0.5;
-    painter.drawRect(QRect(rx, ry, 4, pose_->getDetectorWidth() * zoom_));
-    */
 }
 
 void PoseDisplay::paintPose(QPainter& painter, AcquisitionPose& pose, bool lowOpacity = false, bool onlySources = false)
@@ -176,10 +161,10 @@ PoseDisplay::PoseDisplay(AcquisitionModel& model) :
     PoseDisplay(model, 2)
 {
     setFocusPolicy(Qt::ClickFocus);
-    //grabKeyboard();
 }
+
 PoseDisplay::PoseDisplay(AcquisitionModel& model, int axis) :
-    _showRays (false), _zoom (500), _axis(axis), _model {model}
+    _showRays (false), _zoom (1), _axis(axis), _model {model}
 {
     if(_axis == 2)
     {
@@ -197,11 +182,6 @@ PoseDisplay::PoseDisplay(AcquisitionModel& model, int axis) :
         _yAxis = 2;
     }
 }
-/*
-void PoseDisplay::mousePressEvent(QMouseEvent* event)
-{
-    grabKeyboard();
-}*/
 
 void PoseDisplay::keyPressEvent(QKeyEvent* event)
 {

@@ -23,7 +23,6 @@ private:
 
 
 public:
-
 	PoseDisplay(AcquisitionModel& model);
 	PoseDisplay(AcquisitionModel& model, int axis);
 

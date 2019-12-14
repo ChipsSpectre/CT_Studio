@@ -22,8 +22,12 @@ PoseViewer::PoseViewer(AcquisitionModel& model) :
     _loadFileButton {new QPushButton {"Load New File"}},
      _model {model},
      _showRays {false},
-     _zoom {100}
+     _zoom {PoseViewer::DEFAULT_ZOOM}
 {
+    _poseDisplay->setZoom(_zoom);
+    _poseDisplay2->setZoom(_zoom);
+    _poseDisplay3->setZoom(_zoom);
+    
     QGridLayout *layout = new QGridLayout {};
     QGridLayout *viewsLayout = new QGridLayout {};
 	QHBoxLayout *layoutBoxes = new QHBoxLayout {};
@@ -40,7 +44,7 @@ PoseViewer::PoseViewer(AcquisitionModel& model) :
 
     _zoomBox->setMinimum(1);
     _zoomBox->setMaximum(1000);
-    _zoomBox->setValue(100);
+    _zoomBox->setValue(PoseViewer::DEFAULT_ZOOM);
 
     viewsLayout->addWidget(_poseDisplay, 0, 0);
     viewsLayout->addWidget(_poseDisplay2, 1, 1);
