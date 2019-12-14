@@ -32,11 +32,11 @@ static Volume createPhantom(std::string phantomName) {
         Eigen::Vector3f lowerLeft = Eigen::Vector3f::Zero();
         Eigen::Vector3f upperRight = Eigen::Vector3f::Zero();
         for(int i = 0; i<3; i++) {
-            upperRight(i) = 10;
+            upperRight(i) = 0.1f;
         }
         Eigen::Vector3f dimSpacing = Eigen::Vector3f::Zero();
         for(int i = 0; i<3; i++) {
-            dimSpacing(i) = 1;
+            dimSpacing(i) = 0.01f;
         }
 
         Volume vol(lowerLeft, upperRight, dimSpacing, std::move(data));

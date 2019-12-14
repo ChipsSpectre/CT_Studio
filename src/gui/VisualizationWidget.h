@@ -44,8 +44,6 @@ private:
     ///manages all data related to visualization
     VisualizationModel _visModel;
 
-    ///loads the Volume from a file
-    QPushButton *_loadFileButton;    
     ///loads the Volume from the ReconstructionPose
     QPushButton *_loadRecButton;
     ///displays the current color for mpr

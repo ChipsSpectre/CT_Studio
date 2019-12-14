@@ -9,8 +9,6 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QMessageBox>
-// #include <QScrollArea>
-
 
 #include "AcquisitionModel.h"
 #include "PoseDisplay.h"
@@ -23,7 +21,7 @@ class PoseViewer : public QWidget
 
 public:
     static
-    constexpr int DEFAULT_ZOOM = 1;
+    constexpr int DEFAULT_ZOOM = 100;
 private:    
 	QSpinBox *_zoomBox;
 	QCheckBox *_raysBox;
@@ -54,8 +52,6 @@ private:
     QDoubleSpinBox *_detectorWidth;
     QDoubleSpinBox *_detectorHeight;
     QDoubleSpinBox *_detectorSouceDistance;
-    
-    QPushButton *_loadFileButton;
     
     AcquisitionModel& _model;
 	bool _showRays;
@@ -146,6 +142,4 @@ public slots:
     void generatePoses(){
         _model.addSphericalPoses(_poseCount1->value(), _poseCount2->value());
     }
-
-    void loadFile();
 };

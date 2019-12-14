@@ -30,7 +30,6 @@ void VisualizationWidget::updateDVRWidget()
 
 VisualizationWidget::VisualizationWidget() :
     _visModel {},
-    _loadFileButton {new QPushButton{"Load from file"}},
     _loadRecButton {new QPushButton{"Load reconstruction"}},
     _mprColorLabel {new QLabel {}},
     _mprSelectColorButton {new QPushButton{"Select color for MPR"}},
@@ -68,13 +67,11 @@ VisualizationWidget::VisualizationWidget() :
     menuLayout->addItem(mprColorLayout, 2, 0);
     menuLayout->addItem(dvrColorLayout, 4, 0);
 
-    menuLayout->addWidget(_loadFileButton, 0, 0);
     menuLayout->addWidget(_loadRecButton, 1, 0);
 
     menuLayout->addWidget(_mprControlWidget, 3, 0);
     menuLayout->addWidget(_dvrControlWidget, 5, 0);
     
-    menuLayout->addWidget(_loadFileButton, 0, 0);
     menuLayout->addWidget(_loadRecButton, 0, 1);
     
     mainLayout->addItem(menuLayout);
@@ -94,7 +91,6 @@ VisualizationWidget::VisualizationWidget() :
 
     setLayout(mainLayout);
 
-    connect(_loadFileButton, &QPushButton::pressed, this, &VisualizationWidget::loadFromFile);
     connect(_loadRecButton, &QPushButton::pressed, this, &VisualizationWidget::requestRecVolume);
     //connect(_mprSelectColorButton, &QPushButton::pressed, this, &VisualizationWidget::mprChangeColor);
     connect(_mprColorResetButton, &QPushButton::pressed, this, &VisualizationWidget::mprResetColor);
